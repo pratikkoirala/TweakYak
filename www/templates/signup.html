@@ -2,17 +2,22 @@
     <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
         <form class="list">
             <ion-list>
+
+              <label class="item item-input">
+
+                <input type="text" ng-model= "SignUpDetails.username" placeholder="Username">
+              </label>
                 <label class="item item-input">
-                    <span class="input-label">.EDU Email</span>
-                    <input type="text" placeholder="">
+
+                    <input type="text" ng-model= "SignUpDetails.email" placeholder=".EDU Email">
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input type="text" placeholder="">
+
+                    <input type="password" ng-model="SignUpDetails.password" placeholder="Password">
                 </label>
             </ion-list>
             <div class="spacer" style="width: 300px; height: 39px;"></div>
-            <a href="#/page20" class="button button-stable button-block ">Sign up</a>
+            <a href="#" class="button button-stable button-block " ng-click="doSignUp()">Sign up</a>
         </form>
     </ion-content>
 </ion-view>

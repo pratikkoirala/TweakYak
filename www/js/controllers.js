@@ -22,8 +22,29 @@ angular.module('app.controllers', ['app.services'])
 
 })
 
-.controller('signupCtrl', function($scope) {
+.controller('signupCtrl', function($scope,$state,ParseHttpService) {
+    $scope.SignUpDetails = {
+      username: "",
+      password: "",
+      email: ""
+    };
+    $scope.doSignUp = function () {
+      if ($scope.SignUpDetails.email.slice(-3).toLowerCase() == "edu") {
+        ParseHttpService.Signup($scope.SignUpDetails).then(function (_user) {
+            alert("Congratulaltion, you are signed up for TweakYak! Enjoy!!")
+            $state.go('login', {});
+        })
+      }
+      else{
+        alert("Only .edu accounts allowed on TweakYak!");
+      }
+      $scope.SignUpDetails = {
+        username: "",
+        password: "",
+        email: ""
+      };
 
+    }
 })
 
 .controller('trendingCtrl', function($scope) {

@@ -1,8 +1,8 @@
 angular.module('app.services', [])
 
-.factory('BlankFactory', [function(){
+.factory('BlankFactory', function(){
 
-}])
+})
 
 .service('ParseHttpService', function($http, $q){
 
@@ -51,7 +51,7 @@ angular.module('app.services', [])
         var settings = {
           headers: authenticationHeaders,
           params: {
-            "username": (credentials && credentials.email),
+            "username": (credentials && credentials.username),
             "password": (credentials && credentials.password)
           }
         };
@@ -89,8 +89,7 @@ angular.module('app.services', [])
           'Content-Type': 'application/json'
         };
         //    var url = "https://api.parse.com/1/users";
-        credentials.upvoted = [];
-        credentials.downvoted = [];
+
         var dataObject = JSON.stringify(credentials);
 
         console.log(dataObject);
