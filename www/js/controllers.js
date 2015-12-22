@@ -62,6 +62,7 @@ angular.module('app.controllers', ['app.services'])
 })
 
 .controller('addYakCtrl', function($scope, $state, ParseHttpService, CurrentUser) {
+    console.log(CurrentUser);
     $scope.Yak = {
       post: "",
       blastTime: 0
