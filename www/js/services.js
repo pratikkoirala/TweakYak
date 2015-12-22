@@ -117,7 +117,7 @@ angular.module('app.services', [])
         var NewYak = {
           "post": YakObject.post,
           "comments": [],
-          "creator": CurrentUser.name,
+          "creator": CurrentUser.username,
           "blastTime": parseInt(YakObject.blastTime)
 
       };
