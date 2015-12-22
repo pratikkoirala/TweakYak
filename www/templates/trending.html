@@ -8,12 +8,13 @@
         <div class="list card">
             <div class="item item-divider">New</div>
             <div class="item item-body">
-                <ion-list>
-                    <ion-item>Item 1</ion-item>
-                    <ion-item>Item 2</ion-item>
-                    <ion-item>Item 3</ion-item>
-                </ion-list>
+              <ion-list>
+                <ion-item ng-repeat="Yak in YaksToDisplay | orderBy:'-createdAt'">
+                  {{Yak.post}}
+                </ion-item>
+              </ion-list>
             </div>
         </div>
+
     </ion-content>
 </ion-view>

@@ -1,9 +1,4 @@
 angular.module('app.services', [])
-
-.factory('BlankFactory', function(){
-
-})
-
 .service('ParseHttpService', function($http, $q){
 
     var baseURL = "https://api.parse.com/1/";
@@ -117,6 +112,7 @@ angular.module('app.services', [])
           });
       },
 
+
       addYakToParse: function(YakObject, CurrentUser) {
         var NewYak = {
           "post": YakObject.post,
@@ -141,13 +137,21 @@ angular.module('app.services', [])
           alert("Error" + _errorResponse);
         })
 
+      },
+
+      GetAllYaks: function(){
+        var settings={
+          headers: authenticationHeaders
+        };
+       //Get everything from classes/1/Yaks and return them
+        return $http.get(baseURL + 'classes/Yaks', settings)
+          .then(function (response) {
+            console.log('GotAllYaks', response.data.results);
+            return response.data.results;
+          }, function (error) {
+            console.log('Error in GetAllYaks', error);
+          });
       }
-
-
-
-
-
-
 
     }
 
