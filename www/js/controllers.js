@@ -47,8 +47,11 @@ angular.module('app.controllers', ['app.services'])
     }
 })
 
-.controller('trendingCtrl', function($scope) {
-
+.controller('trendingCtrl', function($scope, ParseHttpService) {
+  $scope.YaksToDisplay = [];
+    ParseHttpService.GetAllYaks().then(function(response){
+      $scope.YaksToDisplay = response;
+    });
 })
 
 .controller('addYakCtrl', function($scope) {
@@ -61,4 +64,4 @@ angular.module('app.controllers', ['app.services'])
 
 .controller('profileCtrl', function($scope) {
 
-})
+});

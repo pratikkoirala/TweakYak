@@ -117,10 +117,21 @@ angular.module('app.services', [])
             console.log(_error);
             window.localStorage.setItem('CurrentUser', null);
           });
+      },
+
+      GetAllYaks: function(){
+        var settings={
+          headers: authenticationHeaders
+        };
+       //Get everything from classes/1/Yaks and return them
+        return $http.get(baseURL + 'classes/Yaks', settings)
+          .then(function (response) {
+            console.log('GotAllYaks', response.data.results);
+            return response.data.results;
+          }, function (error) {
+            console.log('Error in GetAllYaks', error);
+          });
       }
-
-
-
 
 
 
