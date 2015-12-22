@@ -3,14 +3,15 @@
         <div class="spacer" style="width: 279px; height: 22px;"></div>
         <form class="list">
             <label class="item item-input">
-                <span class="input-label">Say something...</span>
-                <input type="text" placeholder="">
+
+                <input type="text" ng-model="Yak.post" placeholder="Say something...">
             </label>
             <div class="spacer" style="width: 279px; height: 31px;"></div>
-            <ion-item class="range range-positive">Blast Time
-                <input type="range" value="50" min="0" max="100">
+            <ion-item class="range range-positive">Blast Time (in minutes)
+                <input type="range" value="5" min="1" max="5" ng-model="Yak.blastTime">{{Yak.blastTime}}
+
             </ion-item>
         </form>
-        <a href="#/page16/page22" class="button button-stable button-block ">Ignite</a>
+        <a href="#/page16/page22" class="button button-stable button-block " ng-click="addYak()">Ignite</a>
     </ion-content>
 </ion-view>

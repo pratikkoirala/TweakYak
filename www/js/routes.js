@@ -63,15 +63,17 @@ angular.module('app.routes', [])
     })
 
 
-
-
-
     .state('tabsController.addYak', {
       url: '/page23',
       views: {
         'tab5': {
           templateUrl: 'templates/addYak.html',
           controller: 'addYakCtrl'
+        }
+      },
+      resolve: {
+        CurrentUser: function (resolvedUser) {
+          return resolvedUser;
         }
       }
     })

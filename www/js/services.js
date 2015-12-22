@@ -6,8 +6,6 @@ angular.module('app.services', [])
 
 .service('ParseHttpService', function($http, $q){
 
-
-
     var baseURL = "https://api.parse.com/1/";
     var authenticationHeaders = {
       "x-parse-application-id": "7dnlESjpOdA8WiqzwCufG23b1RP48KZ6zoTx5WX5",
@@ -117,6 +115,32 @@ angular.module('app.services', [])
             console.log(_error);
             window.localStorage.setItem('CurrentUser', null);
           });
+      },
+
+      addYakToParse: function(YakObject, CurrentUser) {
+        var NewYak = {
+          "post": YakObject.post,
+          "comments": [],
+          "creator": CurrentUser.name,
+          "blastTime": parseInt(YakObject.blastTime)
+
+      };
+        var settings = {
+          async: true,
+          crossDomain: true,
+          headers: authenticationHeaders,
+          url: "https://api.parse.com/1/classes/Yaks",
+          method: "POST",
+          data: JSON.stringify(NewYak)
+        };
+
+        return $http(settings).then(function(response){
+          console.log("Yak added:", response);
+          return response;
+        }, function error(_errorResponse){
+          alert("Error" + _errorResponse);
+        })
+
       }
 
 

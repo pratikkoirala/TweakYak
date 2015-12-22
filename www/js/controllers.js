@@ -31,9 +31,11 @@ angular.module('app.controllers', ['app.services'])
     $scope.doSignUp = function () {
       if ($scope.SignUpDetails.email.slice(-3).toLowerCase() == "edu") {
         ParseHttpService.Signup($scope.SignUpDetails).then(function (_user) {
-            alert("Congratulaltion, you are signed up for TweakYak! Enjoy!!")
+            alert("Congratulaltion, you are signed up for TweakYak! Enjoy!!");
             $state.go('login', {});
-        })
+        },function (_error) {
+          alert("Login Error " + (_error.message ? _error.message : _error.data.error));
+        });
       }
       else{
         alert("Only .edu accounts allowed on TweakYak!");
@@ -51,8 +53,17 @@ angular.module('app.controllers', ['app.services'])
 
 })
 
-.controller('addYakCtrl', function($scope) {
+.controller('addYakCtrl', function($scope, $state, ParseHttpService, CurrentUser) {
+    $scope.Yak = {
+      post: "",
+      blastTime: 0
+    };
 
+    $scope.addYak = function (){
+      ParseHttpService.addYakToParse($scope.Yak, CurrentUser).then(function(response){
+        return response;
+      })
+    }
 })
 
 .controller('yakDetailCtrl', function($scope) {
