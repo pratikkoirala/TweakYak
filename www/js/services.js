@@ -111,15 +111,22 @@ angular.module('app.services', [])
             window.localStorage.setItem('CurrentUser', null);
           });
       },
-
+      deleteYakById: function (id) {
+        var settings = {
+          headers: authenticationHeaders
+        };
+        return $http.delete(baseURL + 'classes/Yaks/' + id, settings)
+          .then(function (response) {
+            return response.data;
+          });
+      },
 
       addYakToParse: function(YakObject, CurrentUser) {
         var NewYak = {
           "post": YakObject.post,
           "comments": [],
-          "creator": CurrentUser.name,
+          "creator": CurrentUser.username,
           "blastTime": parseInt(YakObject.blastTime)
-
       };
         var settings = {
           async: true,

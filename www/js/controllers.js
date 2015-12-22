@@ -44,8 +44,7 @@ angular.module('app.controllers', ['app.services'])
         username: "",
         password: "",
         email: ""
-      };
-
+      }
     }
 })
 
@@ -53,7 +52,13 @@ angular.module('app.controllers', ['app.services'])
   $scope.YaksToDisplay = [];
     ParseHttpService.GetAllYaks().then(function(response){
       $scope.YaksToDisplay = response;
+
+      //------------ Delete Yaks that have expired ----------------//
+      //ParseHttpService.deleteYakById(id);
     });
+  $scope.refresh = function(){
+    console.log("asdasdasda pressed refreshed");
+  }
 })
 
 .controller('addYakCtrl', function($scope, $state, ParseHttpService, CurrentUser) {

@@ -3,9 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/www/js/app.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/controllers.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/js/routes.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/js/services.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/www/templates/addYak.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/templates/login.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www/templates/signup.html" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
